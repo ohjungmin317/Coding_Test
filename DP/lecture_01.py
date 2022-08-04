@@ -22,9 +22,10 @@ d[0] = storage[0]
 d[1] = max(storage[0], storage[1])
 
 for i in range(2,n):
-    print('f(' + str(storage) +')', end =' ')
     d[i] = max(d[i-1], d[i-2]+storage[i])
 
 
 print(d[n-1])
+
+# 해당 점화식 : a = max(a(i-1), a(i-2)+ki)
     
