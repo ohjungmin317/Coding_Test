@@ -42,20 +42,21 @@ for i in collect_array: # 소비자가 원하는 부품 하나씩 탐색 하는 
     else:
         print('no', end=' ')
 
+
 # Set 방법으로 풀어보기
 
-# n = int(input())
+n = int(input())
 
-# question_array = set(map(int,input().split()))
+question_array = set(map(int,input().split()))
 
-# m = int(input())   
+m = int(input())   
 
-# collect_array = list(map(int, input().split()))
+collect_array = list(map(int, input().split()))
 
 
-# for i in collect_array:
-#     if i in question_array:
-#         print('yes', end=' ')
-#     else:
-#         print('no', end=' ')
+for i in collect_array:
+    if i in question_array:
+        print('yes', end=' ')
+    else:
+        print('no', end=' ')
 

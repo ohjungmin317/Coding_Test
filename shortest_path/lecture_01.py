@@ -49,11 +49,11 @@ def dijkstra(start):
         for neighbor in graph[now]: # 현재 노드와 연결된 다른 인접한 노드들을 확인 
             
         # 현재 노드를 거쳐서, 다른 노드로 이동하는 거리가 더 짧은 경우 
-            if(distance[neighbor[0]] > cost + neighbor[1]):
+            if(distance[neighbor[0]] > cost):
                 
-                distance[neighbor[0]] = cost + neighbor[1]
+                distance[neighbor[0]] = cost
                 
-                heapq.heappush(q, (cost + neighbor[1], neighbor[0]))
+                heapq.heappush(q, (cost,neighbor[0]))
 
 # 다엑스트라 알고리즘 수행 
 dijkstra(C)
