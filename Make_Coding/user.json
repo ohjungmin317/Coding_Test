@@ -1,0 +1,9 @@
+{
+    "id": "ohjungmin",
+    "password": "12345",
+    "age": 25,
+    "hobby": [
+        "swimming",
+        "programming"
+    ]
+}
