@@ -5,6 +5,11 @@ Created on Tue Aug 23 17:48:47 2022
 @author: 오정민
 """
 
+# 11660 - 구간 합 구하기 - dp 문제 해결 
+
+import sys
+input = sys.stdin.readline
+
 n,m = map(int, input().split())
 
 s1 =[]
