@@ -51,54 +51,56 @@ Created on Tue Aug 30 16:55:47 2022
 # 따라서 주어진 문자열을 x / ababcdcd / ababcdcd 로 자르는 것은 불가능 합니다.
 # 이 경우 어떻게 문자열을 잘라도 압축되지 않으므로 가장 짧은 길이는 17이 됩니다.
 
-# def solution(s):
-#     answer = len(s)
-    
-#     for i in range(1, len(s)//2 + 1):
-#         result = ""
-        
-#         pre = s[0:i]
-        
-#         count = 1
-        
-#         for j in range(i, len(s), i):
-#             n = s[j:j+i]
-            
-#             if (n == pre):
-#                 count = count + 1
-#             else:
-#                 if(count>=2):
-#                     result += str(count) + pre
-#                 else:
-#                     result += pre
-#                 pre = n
-#                 count = 1
-                
-#         if (count >=2):
-#             result += str(count) + pre
-#         else:
-#             result += pre
-        
-#         answer = min(answer, len(result))
-        
-#     return answer
-
-
-def soultion(s):
+def solution(s):
     answer = len(s)
+    
+    # 한개 단위(i) 부터 압축 단위를 늘려가면 확인 
     for i in range(1, len(s)//2 + 1):
-        result = ""
+        result = "" # 문자열 저장하기 위한 변수 
+        
+        pre = s[0:i] # 앞에서 부터 i만큼 문자열 추출 
+        
         count = 1
         
-        for j in range(0, len(s), i):
-            if s[j:j+1] == s[j+i:j+2*i]:
+        # 단위(i) 크기 만큼 증가시키며 이전 문자열 비교
+        for j in range(i, len(s), i):
+            n = s[j:j+i] 
+            
+            if (n == pre): # 이전 문자열 상태와 동일하면 count 증가 
                 count = count + 1
             else:
-                if(count != 1):
-                    result += str(count)
-                result += s[j:j+i]
+                if(count>=2): # 다른 문자열이 나왔을 때에는 ( 더이상 압축이 불가능 )
+                    result += str(count) + pre # 다시 상태 초기화
+                else:
+                    result += pre
+                pre = n
                 count = 1
-                
+        # 남아 있는 문자열에 대해 정리        
+        if (count >=2):
+            result += str(count) + pre
+        else:
+            result += pre
+        # 그중에서 최소인 값을 추출  
         answer = min(answer, len(result))
         
     return answer
+
+
+# def soultion(s):
+#     answer = len(s)
+#     for i in range(1, len(s)//2 + 1):
+#         result = ""
+#         count = 1
+        
+#         for j in range(0, len(s), i):
+#             if s[j:j+i] == s[j+i:j+2*i]:
+#                 count = count + 1
+#             else:
+#                 if(count != 1):
+#                     result += str(count)
+#                 result += s[j:j+i]
+#                 count = 1
+                
+#         answer = min(answer, len(result))
+        
+#     return answer
